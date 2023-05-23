@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/infra.ts",
+  "app": "npx tsx ./src/index.ts",
   "watch": {
     "include": [
       "**"
@@ -49,5 +49,6 @@
     "@aws-cdk/aws-stepfunctions-tasks:enableEmrServicePolicyV2": true,
     "@aws-cdk/aws-ec2:restrictDefaultSecurityGroup": true,
     "@aws-cdk/aws-apigateway:requestValidatorUniqueId": true,
+    "repo": "chetzof/action-s3-cloudfront-smart-deploy"
   }
 }

@@ -1,11 +1,13 @@
 {
   "extends": "chetzof-lint-config/tsconfig/tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "@/action/*": ["./*"]
+    },
     "module": "node16",
-    "outDir": "lib",
+    "baseUrl": "./",
+    "outDir": "lib"
     /* Redirect output structure to the directory. */
-    "rootDir": "./src"
-    /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
   },
   "include": [
     "src/**/*"

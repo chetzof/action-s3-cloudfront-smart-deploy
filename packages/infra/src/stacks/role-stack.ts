@@ -1,5 +1,5 @@
 import * as cdk from 'aws-cdk-lib'
-import { CfnOutput } from 'aws-cdk-lib'
+import { CfnOutput, Stack } from 'aws-cdk-lib'
 import * as iam from 'aws-cdk-lib/aws-iam'
 
 import type { Construct } from 'constructs'
@@ -8,11 +8,13 @@ export class RoleStack extends cdk.Stack {
   public readonly role: iam.Role
   constructor(scope: Construct, id: string, properties?: cdk.StackProps) {
     super(scope, id, properties)
-    const provider = new iam.OpenIdConnectProvider(this, 'GithubProvider', {
-      url: 'https://token.actions.githubusercontent.com',
-      clientIds: ['sts.amazonaws.com'],
-      thumbprints: ['6938fd4d98bab03faadb97b34396831e3780aea1'],
-    })
+    const provider = iam.OpenIdConnectProvider.fromOpenIdConnectProviderArn(
+      this,
+      'GithubProvider',
+      `arn:aws:iam::${
+        cdk.Stack.of(this).account
+      }:oidc-provider/token.actions.githubusercontent.com`,
+    )
 
     this.role = new iam.Role(this, 'GithubRole', {
       assumedBy: new iam.FederatedPrincipal(
@@ -50,6 +52,10 @@ export class RoleStack extends cdk.Stack {
 
     new CfnOutput(this, 'roleArn', {
       value: this.role.roleArn,
+    })
+
+    new CfnOutput(this, 'regionId', {
+      value: Stack.of(this).region,
     })
   }
 }

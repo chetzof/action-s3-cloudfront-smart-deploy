@@ -1,4 +1,4 @@
 dist/
-lib/
+packages/infra/src/
 node_modules/
 jest.config.js

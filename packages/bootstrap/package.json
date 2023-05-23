@@ -1,0 +1,22 @@
+{
+  "name": "bootstrap",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx src/index"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "chalk": "^5.2.0",
+    "chetzof-lint-config": "^1.1.0",
+    "enquirer": "^2.3.6",
+    "execa": "^7.1.1",
+    "listr2": "^6.5.0",
+    "lodash-es": "^4.17.21",
+    "tsx": "^3.12.7",
+    "type-fest": "^3.10.0"
+  },
+  "dependencies": {
+    "fs-jetpack": "^5.1.0"
+  }
+}
