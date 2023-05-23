@@ -1,20 +1,12 @@
-import * as core from "@actions/core";
-import { wait } from "./wait";
+import { setCommandEcho, setOutput } from '@actions/core'
+import { exec } from '@actions/exec'
 
 async function run(): Promise<void> {
-  console.log("aaaa");
-  try {
-    const ms: string = core.getInput("milliseconds");
-    core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+  setCommandEcho(true)
 
-    core.debug(new Date().toTimeString());
-    await wait(parseInt(ms, 10));
-    core.debug(new Date().toTimeString());
-
-    core.setOutput("time", new Date().toTimeString());
-  } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message);
-  }
+  const output = await exec('aws', ['s3', 'ls'], {})
+  setOutput('stdout', output)
+  console.log('aaa')
 }
 
-run();
+await run()

@@ -1,4 +1,5 @@
 {
+  "prettier": "chetzof-lint-config/prettier/.prettierrc.js",
   "name": "action-s3-cloudfront-smart-deploy",
   "version": "0.0.0",
   "private": true,
