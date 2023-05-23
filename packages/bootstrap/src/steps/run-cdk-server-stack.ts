@@ -43,13 +43,6 @@ export const runCdkServerStack: ListrTask<Context> = {
       repo,
       task,
     })
-
-    await setGithubVar({
-      varName: 'AWS_REGION',
-      varValue: await getStackOutputValue('regionId', 'action-server', task),
-      repo,
-      task,
-    })
   },
   options: {
     persistentOutput: false,

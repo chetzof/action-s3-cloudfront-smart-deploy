@@ -17,6 +17,12 @@ export const savingRoleToGithub: ListrTask<Context> = {
 
     const arn = await getStackOutputValue('roleArn', 'action-role', task)
     await setGithubVar({ varName: 'AWS_ROLE', varValue: arn, repo, task })
+    await setGithubVar({
+      varName: 'AWS_REGION',
+      varValue: await getStackOutputValue('regionId', 'action-role', task),
+      repo,
+      task,
+    })
   },
   options: {
     persistentOutput: true,
