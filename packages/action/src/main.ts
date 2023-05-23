@@ -1,14 +1,16 @@
-import { setCommandEcho, setOutput } from '@actions/core'
-import { exec } from '@actions/exec'
+import * as core from '@actions/core'
+import { getExecOutput } from '@actions/exec'
 
 import { a } from '@/action/src/one'
 
 async function run(): Promise<void> {
-  setCommandEcho(true)
+  const directory = core.getInput('directory')
+  const s3Bucket = core.getInput('s3-bucket')
+  core.setCommandEcho(true)
   a()
-  const output = await exec('aws', ['s3', 'ls'], {})
-  setOutput('stdout', output)
-  console.log('aaa')
+  const output = await getExecOutput('aws', ['s3', 'ls'], {})
+  // core.setOutput('stdout', output)
+  // console.log(output)
 }
 
 run()

@@ -28,21 +28,25 @@ export const runCdkServerStack: ListrTask<Context> = {
 
     await setGithubVar({
       varName: 'AWS_DISTRIBUTION',
-      varValue: await getStackOutputValue('distributionId', 'server', task),
+      varValue: await getStackOutputValue(
+        'distributionId',
+        'action-server',
+        task,
+      ),
       repo,
       task,
     })
 
     await setGithubVar({
       varName: 'AWS_BUCKET',
-      varValue: await getStackOutputValue('awsBucketId', 'server', task),
+      varValue: await getStackOutputValue('awsBucketId', 'action-server', task),
       repo,
       task,
     })
 
     await setGithubVar({
       varName: 'AWS_REGION',
-      varValue: await getStackOutputValue('regionId', 'server', task),
+      varValue: await getStackOutputValue('regionId', 'action-server', task),
       repo,
       task,
     })

@@ -1,11 +1,25 @@
-name: 'Your name here'
+name: 'AWS sync'
 description: 'Provide a description here'
-author: 'Your name or organization here'
+author: 'Vlad Cos'
 inputs:
-  milliseconds: # change this
+  directory:
+    description: 'Directory to sync'
+    required: false
+    default: 'dist/'
+  s3-bucket:
+    description: 'S3 bucket to sync to'
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  s3-path:
+    description: 'S3 path'
+    required: false
+    default: '/'
+  args:
+    description: 'Additional arguments for sync command'
+    required: false
+    default: '--size-only'
+outputs:
+  stdout:
+    description: 'Output of AWS S3 sync'
 runs:
   using: 'node16'
   main: 'packages/action/dist/index.js'
