@@ -9,4 +9,4 @@ async function run(): Promise<void> {
   console.log('aaa')
 }
 
-await run()
+run()
