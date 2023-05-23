@@ -28,5 +28,5 @@ jobs:
       - run: npm run -w action package
       - uses: ./
         with:
-          dist: .github
+          directory: .github
           s3-bucket: ${{ vars.AWS_BUCKET }}
