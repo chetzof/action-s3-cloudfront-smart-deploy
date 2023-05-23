@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@pepperize/cdk-github": "^0.0.476",
-    "aws-cdk-lib": "2.78.0",
+    "aws-cdk-lib": "2.80.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
   }
