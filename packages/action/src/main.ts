@@ -7,7 +7,7 @@ async function run(): Promise<void> {
   const path = core.getInput('s3-path')
   const s3SyncArguments = core.getInput('args').split(' ')
   s3SyncArguments.push('--no-progress')
-  core.setCommandEcho(true)
+  // core.setCommandEcho(true)
   await getExecOutput('aws', [
     's3',
     'sync',
