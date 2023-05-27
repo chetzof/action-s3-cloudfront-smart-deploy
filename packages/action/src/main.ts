@@ -8,7 +8,7 @@ async function run(): Promise<void> {
   const s3SyncArguments = core.getInput('args').split(' ')
   s3SyncArguments.push('--no-progress')
   core.setCommandEcho(true)
-  const output = await getExecOutput('aws', [
+  await getExecOutput('aws', [
     's3',
     'sync',
     directory,
