@@ -16,8 +16,9 @@ async function run(): Promise<void> {
     ...s3SyncArguments,
   ])
   core.setOutput('exec', output)
-  core.setOutput('stdout', output)
-  // console.log(output)
+  core.setOutput('stdout', output.stdout)
+  core.setOutput('stdout', output.stderr)
+  console.log(output)
 }
 
 run()
