@@ -15,10 +15,10 @@ async function run(): Promise<void> {
     `s3://${s3Bucket}${path.startsWith('/') ? '' : '/'}${path}`,
     ...s3SyncArguments,
   ])
-  core.setOutput('11111', output)
-  core.setOutput('2222', output.stdout)
-  core.setOutput('3333', output.stderr)
-  console.log('4444', output)
+  // core.setOutput('11111', output)
+  // core.setOutput('2222', output.stdout)
+  // core.setOutput('3333', output.stderr)
+  // console.log('4444', output)
 }
 
 run()
