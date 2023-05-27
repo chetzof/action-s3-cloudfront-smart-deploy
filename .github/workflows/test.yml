@@ -30,3 +30,4 @@ jobs:
         with:
           directory: .github
           s3-bucket: ${{ vars.AWS_BUCKET }}
+      - run: aws s3 rm s3://${{ vars.AWS_BUCKET }} --recursive
