@@ -15,7 +15,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@pepperize/cdk-github": "^0.0.476",
+    "@pepperize/cdk-github": "^0.0.511",
     "aws-cdk-lib": "2.78.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
